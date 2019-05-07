@@ -1,0 +1,85 @@
+{
+    "title": "Search Services",
+    "description": "API for Internet Archive's Search-related services\n",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/archive.org/search/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.archive.org/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_search_v1_fields": {
+            "main": "./lib/actions/get_search_v1_fields.js",
+            "title": "Fields that can be requested",
+            "description": "Fields that can be requested",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_search_v1_fields.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_search_v1_organic": {
+            "main": "./lib/actions/get_search_v1_organic.js",
+            "title": "Return relevance-based results from search queries\n",
+            "description": "Return relevance-based results from search queries\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_search_v1_organic.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_search_v1_scrape": {
+            "main": "./lib/actions/get_search_v1_scrape.js",
+            "title": "Scrape search results from Internet Archive, allowing a scrolling cursor\n",
+            "description": "Scrape search results from Internet Archive, allowing a scrolling cursor\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_search_v1_scrape.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

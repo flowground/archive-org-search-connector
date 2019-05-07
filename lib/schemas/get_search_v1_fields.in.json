@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "callback": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

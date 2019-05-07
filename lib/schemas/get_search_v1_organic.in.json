@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "q": {
+            "type": "string"
+        },
+        "field": {
+            "required": false,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 250,
+            "default": "identifier"
+        },
+        "size": {
+            "required": false,
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 10000,
+            "default": 1000
+        },
+        "total_only": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "callback": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
